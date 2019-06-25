@@ -24,7 +24,7 @@ Smaple implementation of Object Oriented design patterns
   * [ ] Iterator
   * [ ] Mediator
   * [ ] Memento
-  * [ ] Observer
+  * [x] [Observer](observer.java)
   * [ ] State
   * [x] [Strategy](strategy.java)
   * [ ] Template Method
