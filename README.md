@@ -19,7 +19,7 @@ Smaple implementation of Object Oriented design patterns
   * [ ] Proxy
 * Behavioural
   * [ ] Chain of Responsibility
-  * [ ] Command
+  * [x] [Command](command.java)
   * [ ] Interpreter
   * [ ] Iterator
   * [ ] Mediator
