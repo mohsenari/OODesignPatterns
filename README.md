@@ -13,7 +13,7 @@ Smaple implementation of Object Oriented design patterns
   * [ ] Adapter
   * [ ] Bridge
   * [ ] Composite
-  * [ ] Decorator
+  * [x] [Decorator](decorator.java)
   * [ ] Facade
   * [ ] Flyweight
   * [ ] Proxy
