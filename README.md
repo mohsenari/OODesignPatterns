@@ -7,6 +7,7 @@ Smaple implementation of Object Oriented design patterns
 * Creational
   * [ ] Builder
   * [x] [Factory Method](factory.java)
+  * [x] [Abstract Factory](abstractfactory.java)
   * [ ] Prototype
   * [x] [Singleton](singleton.java)
 * Structural
