@@ -35,9 +35,13 @@ class CarFactory {
 
 class Main {
     public static void main (String args[]) {
-        CarFactory myCarFactory = new CarFactory();
-        Car myCar = myCarFactory.getCar("JAPANESE");
+        CarFactory factory = new CarFactory();
+        Car myJapaneseCar = factory.getCar("JAPANESE");
+        Car myAmericanCar = factory.getCar("AMERICAN");
+        Car myFrenchCar = factory.getCar("FRENCH");
 
-        System.out.println(myCar.getCarName());
+        System.out.println(myJapaneseCar.getCarName()); // TOYOTA
+        System.out.println(myAmericanCar.getCarName()); // FORD
+        System.out.println(myFrenchCar.getCarName()); // PEUGEOT
     }
 }
