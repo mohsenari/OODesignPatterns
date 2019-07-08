@@ -1,8 +1,8 @@
 # OODesignPatterns
 
-Smaple implementation of Object Oriented design patterns
+Sample implementation of Object Oriented design patterns
 
-## List of patterns to implement:
+## List of patterns to implement
 
 * Creational
   * [ ] Builder
