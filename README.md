@@ -6,7 +6,8 @@ Sample implementation of Object Oriented design patterns
 
 * Creational
   * [ ] Builder
-  * [ ] Factory Method
+  * [x] [Factory Method](factory.java)
+  * [x] [Abstract Factory](abstractfactory.java)
   * [ ] Prototype
   * [x] [Singleton](singleton.java)
 * Structural

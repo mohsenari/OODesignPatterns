@@ -83,7 +83,7 @@ class Main {
         System.out.println(strategy.processString("this is a string")); // thi...
         System.out.println(strategy.processInteger(2)); // Even number
 
-        System.out.println(strategy2.processString("this is a string")); // gnirts a si siht olleh
+        System.out.println(strategy2.processString("this is a string")); // gnirts a si siht
         System.out.println(strategy2.processInteger(2)); // Prime number
     }
 }
