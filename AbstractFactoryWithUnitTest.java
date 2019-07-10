@@ -1,3 +1,6 @@
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
 interface Car {
     public String getCarName();
 }
@@ -22,7 +25,7 @@ class Nissan implements Car{
 
 class NissanElectric implements Car {
     public String getCarName() {
-        return "Nisssan Leaf";
+        return "Nissan Leaf";
     }
 }
 
@@ -65,5 +68,28 @@ class Main {
         Car myElectricCar2 = eFactory.getCar("japanese");
         System.out.println(myElectricCar.getCarName()); // Ford Model E
         System.out.println(myElectricCar2.getCarName()); // Nissan Leaf 
+    }
+}
+
+public class AbstractFactoryWithUnitTest {
+
+    @Test
+    public void testGasCarFactory() {
+        CarFactory factory = new GasCarFactory();
+        Car testCar = factory.getCar("american");
+        assertEquals(testCar.getCarName(), "Ford Focus");
+
+        testCar = factory.getCar("japanese");
+        assertEquals(testCar.getCarName(), "Nissan Rogue");
+    }
+    
+    @Test
+    public void testElectricCarFactory() {
+        CarFactory factory = new ElectricCarFactory();
+        Car testCar = factory.getCar("american");
+        assertEquals(testCar.getCarName(), "Ford Model E");
+
+        testCar = factory.getCar("japanese");
+        assertEquals(testCar.getCarName(), "Nissan Leaf");
     }
 }

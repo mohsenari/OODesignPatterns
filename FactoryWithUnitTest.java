@@ -1,3 +1,8 @@
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+
 interface Car {
     public String getCarName();
 }
@@ -44,4 +49,34 @@ class Main {
         System.out.println(myAmericanCar.getCarName()); // FORD
         System.out.println(myFrenchCar.getCarName()); // PEUGEOT
     }
+}
+
+
+public class FactoryWithUnitTest {
+   @Test
+   public void testCarFactory() {
+        // Common case
+        CarFactory testCarFactory = new CarFactory();
+        Car myTestCar = testCarFactory.getCar("japanese");
+        assertEquals(myTestCar.getCarName(),"TOYOTA");
+        
+        myTestCar = testCarFactory.getCar("american");
+        assertEquals(myTestCar.getCarName(), "FORD");
+
+        myTestCar = testCarFactory.getCar("french");
+        assertEquals(myTestCar.getCarName(), "PEUGEOT");
+   }
+
+    @Test
+    public void testInvalidCarFactory() {
+        // Edge case
+        CarFactory testCarFactory = new CarFactory();
+        Car myTestCar = testCarFactory.getCar("invlid car type");
+
+        try {
+            myTestCar.getCarName();
+        } catch(NullPointerException e) {
+            assertNotNull(e);
+        }
+   }
 }
