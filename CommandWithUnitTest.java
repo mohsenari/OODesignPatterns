@@ -1,3 +1,12 @@
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.*;
+import org.mockito.Mock;
+import org.mockito.Spy;
+import org.mockito.runners.MockitoJUnitRunner;
+
 // invoker class to define execute and unexecute methods for commands
 class Invoker {
     ICommand on;
@@ -85,6 +94,10 @@ class Light {
         this.status = "bright";
         System.out.println(this.status);
     }
+
+    public String getStatus() {
+        return this.status;
+    }
 }
 
 // main class to instantiate the receiver (light) and the invoker with commands
@@ -96,5 +109,21 @@ class Main {
         invoker.dimLights(); //dim
         invoker.brightLights(); //bright
         invoker.turnOffLights(); //off
+    }
+}
+
+public class CommandWithUnitTest {
+    @Test
+    public void testInvoker() {
+        Light light = spy(new Light());
+        Invoker invoker = new Invoker(new LightOnCommand(light), new LightDimCommand(light));
+
+        invoker.turnOnLights();
+        verify(light).on();
+        assertEquals("on", light.getStatus());
+
+        invoker.dimLights();
+        verify(light).dim();
+        assertEquals("dim", light.getStatus());
     }
 }
