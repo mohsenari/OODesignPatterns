@@ -1,3 +1,12 @@
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.*;
+import org.mockito.Mock;
+import org.mockito.Spy;
+import org.mockito.runners.MockitoJUnitRunner;
+
 // base class for beverage
 abstract class Beverage {
     public abstract double cost();
@@ -48,5 +57,27 @@ class Main {
         // the cost is espress.cost() + Chocolate.cost() + Caramel.cost()
         System.out.println(caramelChocolateEspresso.cost()); // 5.5 => 2 + 1.5 + 2
         
+    }
+}
+
+public class DecoratorWithUnitTest {
+
+    @Test
+    public void testEspressoCost() {
+        Beverage espresso = new Espresso();
+        assertEquals(2, espresso.cost(), 0);
+    }
+    
+    @Test
+    public void testAddonBeverages() {
+        Beverage espresso = mock(Espresso.class);
+        double mockedEspressoCost = 5;
+        doReturn(mockedEspressoCost).when(espresso).cost();
+        
+        Beverage caramelEspresso = new Caramel(espresso);
+        assertEquals(7, caramelEspresso.cost(), 0); // 5-> mocked value + 2 caramel cost
+
+        Beverage caramelChocolateEspresso = new Caramel(new Chocolate(espresso));
+        assertEquals(8.5, caramelChocolateEspresso.cost(), 0);
     }
 }
