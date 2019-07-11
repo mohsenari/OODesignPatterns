@@ -1,7 +1,14 @@
 import java.util.List;
 import java.util.ArrayList;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
+import org.mockito.Mock;
+import org.mockito.Spy;
+import org.mockito.runners.MockitoJUnitRunner;
 
-// Observable (Subject) class contains a list of observers, 
+// Observable (Subject) class contains a list of observers,
 // a state that changes in Main and a getter and setter for state
 // notifyObservers calls update() in the list of observers 
 class Observable {
@@ -17,7 +24,7 @@ class Observable {
         return this.state;
     }
 
-    public void notifyObservers(){
+    private void notifyObservers(){
         for (Observer observer : observers) {
             observer.update();
         }
@@ -78,5 +85,30 @@ class Main {
         System.out.println("changing observer state again");
         observable.setState(25);
 
+    }
+}
+
+// Unit tests
+
+@RunWith(MockitoJUnitRunner.class)
+public class ObserverWithUnitTest {
+    // @Rule
+    // public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
+
+    @Test
+    public void testObservable() {
+        Observable observable = spy(new Observable());
+        CelsiusObserver celsiusObserver = new CelsiusObserver(observable);
+        verify(observable).addObserver(celsiusObserver);
+    }
+
+    @Test
+    public void testObserver() {
+        Observable observable = new Observable();
+        // type of celsiusObserver is Observer because the list in Observable class is of type Observer
+        // if "CelsiusObserver celsiusObserver" used, Spy() doesn't recognize when .update() method is called 
+        Observer celsiusObserver = spy(new CelsiusObserver(observable));
+        observable.setState(15);
+        verify(celsiusObserver).update();
     }
 }
