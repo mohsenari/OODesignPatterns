@@ -6,28 +6,28 @@ Sample implementation of Object Oriented design patterns
 
 * Creational
   * [ ] Builder
-  * [x] [Factory Method](factory.java)
-  * [x] [Abstract Factory](abstractfactory.java)
+  * [x] [Factory Method](FactoryWithUnitTest.java)
+  * [x] [Abstract Factory](AbstractfactoryWithUnitTest.java)
   * [ ] Prototype
-  * [x] [Singleton](singleton.java)
+  * [x] [Singleton](SingletonWithUnitTest.java)
 * Structural
   * [ ] Adapter
   * [ ] Bridge
   * [ ] Composite
-  * [x] [Decorator](decorator.java)
+  * [x] [Decorator](DecoratorWithUnitTest.java)
   * [ ] Facade
   * [ ] Flyweight
   * [ ] Proxy
 * Behavioural
   * [ ] Chain of Responsibility
-  * [x] [Command](command.java)
+  * [x] [Command](CommandWithUnitTest.java)
   * [ ] Interpreter
   * [ ] Iterator
   * [ ] Mediator
   * [ ] Memento
-  * [x] [Observer](observer.java)
+  * [x] [Observer](ObserverWithUnitTest.java)
   * [ ] State
-  * [x] [Strategy](strategy.java)
+  * [x] [Strategy](StrategyWithUnitTest.java)
   * [ ] Template Method
   * [ ] Visitor
 
